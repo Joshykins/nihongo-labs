@@ -1,0 +1,21 @@
+{
+	"name": "数字-Dash | Suji-Dash",
+	"short_name": "Suji-Dash",
+	"description": "Master Japanese numbers fast with fun exercises",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#fdf2f8",
+	"theme_color": "#8b5cf6",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/apple-touch-icon.svg",
+			"sizes": "180x180",
+			"type": "image/svg+xml"
+		}
+	]
+}
