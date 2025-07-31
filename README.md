@@ -1,29 +1,77 @@
-# Create T3 App
+# 数字-Dash (Suji-Dash)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern web app for improving Japanese number reading speed and accuracy.
 
-## What's next? How do I make an app with this?
+## What is this?
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+As a developer learning Japanese, I struggled with number recognition speed. Reading prices, addresses, and dates was painfully slow. Most language learning apps are bloated with features I didn't need - I wanted something I could quickly open in my browser, practice for 5 minutes, and actually see progress.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+So I built Suji-Dash: a modern, lightweight web app that focuses on one thing - making Japanese number recognition fast and effortless.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Features
 
-## Learn More
+- ⚡ **Lightning Fast** - Improve your number recognition speed with focused practice
+- 🎯 **Accuracy First** - Build muscle memory with immediate feedback on your answers  
+- 📈 **Track Progress** - See your improvement over time with simple progress tracking
+- ⏰ **Timed Practice** - Challenge yourself with time-based exercises to build speed
+- 🌐 **Instant Access** - No downloads, no sign-ups, just bookmark and practice anywhere
+- 📱 **Responsive** - Works on any device - desktop, tablet, or mobile
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Tech Stack
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Built with modern web technologies:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- [Next.js 15](https://nextjs.org) - React framework with App Router
+- [TypeScript](https://typescriptlang.org) - Type safety
+- [Tailwind CSS v4](https://tailwindcss.com) - Styling
+- [shadcn/ui](https://ui.shadcn.com) - UI components
+- [tRPC](https://trpc.io) - Type-safe APIs
+- [Lucide React](https://lucide.dev) - Icons
 
-## How do I deploy this?
+## Getting Started
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/Joshykins/suji-dash.git
+cd suji-dash
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Development
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run check` - Run linting and type checking
+- `npm run check:write` - Fix linting issues
+
+## Contributing
+
+This is a personal learning tool, but contributions are welcome! Feel free to:
+
+- Report bugs or suggest features
+- Submit pull requests
+- Fork the project for your own use
+
+## Why Open Source?
+
+I believe in building in public and sharing tools that help others learn. If this helps even one person improve their Japanese number recognition, it's worth it.
+
+## License
+
+MIT - Feel free to use this code for your own learning tools!
+
+---
+
+Built with ❤️ by a developer learning Japanese
