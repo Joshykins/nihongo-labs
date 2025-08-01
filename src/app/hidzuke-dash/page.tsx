@@ -614,9 +614,9 @@ const ConfigurationStep = ({
 											showReadings: e.target.checked,
 										}))
 									}
-									className="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+									className="h-4 w-4 cursor-pointer rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
 								/>
-								<label htmlFor="showReadings" className={`text-sm ${themeStyles.text.primary}`}>
+								<label htmlFor="showReadings" className={`cursor-pointer text-sm ${themeStyles.text.primary}`}>
 									Show hiragana readings for Japanese prompts
 								</label>
 							</div>
@@ -808,7 +808,7 @@ const GamePlayStep = ({
 				<button
 					type="button"
 					onClick={onBack}
-					className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-lg backdrop-blur-sm transition-all hover:bg-white hover:text-emerald-600 hover:shadow-xl"
+					className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-lg backdrop-blur-sm transition-all hover:bg-white hover:text-emerald-600 hover:shadow-xl"
 				>
 					<ArrowLeft className="h-4 w-4" />
 				</button>
@@ -1113,7 +1113,7 @@ const ResultsStep = ({
 			<div className="fade-in-0 fixed top-6 left-6 z-50 animate-in delay-300 duration-500">
 				<Link
 					href="/"
-					className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-lg backdrop-blur-sm transition-all hover:bg-white hover:text-emerald-600 hover:shadow-xl"
+					className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/80 text-gray-600 shadow-lg backdrop-blur-sm transition-all hover:bg-white hover:text-emerald-600 hover:shadow-xl"
 				>
 					<ArrowLeft className="h-4 w-4" />
 				</Link>
