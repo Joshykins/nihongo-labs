@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
