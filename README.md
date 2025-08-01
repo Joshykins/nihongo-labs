@@ -80,7 +80,7 @@ I believe in building in public and sharing tools that help others learn. If thi
 
 ## Live Demo
 
-Visit [nihongo-labs.vercel.app](https://nihongo-labs.vercel.app) to try the tools online.
+Visit [nihongolabs.vercel.app](https://nihongolabs.vercel.app) to try the tools online.
 
 ## License
 
