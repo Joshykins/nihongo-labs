@@ -1,38 +1,47 @@
 import "~/styles/globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
+import { ThemeProvider } from "~/components/theme-provider";
 import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
-	title: "数字-Dash | Suji-Dash - Master Japanese Numbers Fast",
+	title: "日本語-Labs | Master Japanese Numbers & Dates Fast",
 	description:
-		"The fun way to master Japanese number reading and typing. Improve your speed, accuracy, and progress with engaging exercises designed for English speakers learning Japanese.",
+		"Master Japanese numbers and dates with 数字-Dash (Suji-Dash) and 日付-Dash (Hidzuke-Dash). Interactive practice tools for learning Japanese numbers, dates, days, and months with speed and accuracy.",
 	keywords: [
 		"Japanese",
 		"numbers",
+		"dates",
 		"learning",
 		"typing",
 		"speed",
 		"accuracy",
 		"language learning",
 		"suji",
+		"hidzuke",
 		"数字",
+		"日付",
+		"nihongo",
+		"practice",
+		"days of week",
+		"months",
 	],
-	authors: [{ name: "Suji-Dash Team" }],
+	authors: [{ name: "Nihongo Labs" }],
 	openGraph: {
-		title: "数字-Dash | Suji-Dash - Master Japanese Numbers Fast",
+		title: "日本語-Labs | Master Japanese Numbers & Dates",
 		description:
-			"The fun way to master Japanese number reading and typing. Speed • Accuracy • Progress",
+			"Interactive practice tools for Japanese numbers and dates. Master 数字 (numbers) and 日付 (dates) with engaging exercises designed for learners.",
 		type: "website",
 		locale: "en_US",
+		siteName: "Nihongo Labs",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "数字-Dash | Suji-Dash - Master Japanese Numbers Fast",
+		title: "日本語-Labs | Master Japanese Numbers & Dates",
 		description:
-			"The fun way to master Japanese number reading and typing. Speed • Accuracy • Progress",
+			"Interactive practice tools for Japanese numbers and dates. Master 数字 and 日付 with speed and accuracy.",
 	},
 	icons: [
 		{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
@@ -56,9 +65,17 @@ export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" className={`${geist.variable}`}>
+		<html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
 			<body>
-				<TRPCReactProvider>{children}</TRPCReactProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="light"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<TRPCReactProvider>{children}</TRPCReactProvider>
+					<Analytics />
+				</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -309,15 +309,11 @@ describe("Japanese Numbers Library", () => {
 			// Test that different ranges produce appropriately rounded numbers
 			const smallNumbers = samples.filter((n) => n < 1000);
 			const thousands = samples.filter((n) => n >= 1000 && n < 10000);
-			const tenThousands = samples.filter(
-				(n) => n >= 10000 && n < 100000
-			);
+			const tenThousands = samples.filter((n) => n >= 10000 && n < 100000);
 			const hundredThousands = samples.filter(
-				(n) => n >= 100000 && n < 1000000
+				(n) => n >= 100000 && n < 1000000,
 			);
-			const millions = samples.filter(
-				(n) => n >= 1000000 && n < 10000000
-			);
+			const millions = samples.filter((n) => n >= 1000000 && n < 10000000);
 
 			// Small numbers should be exact (no rounding)
 			for (const num of smallNumbers) {
@@ -385,38 +381,28 @@ describe("Japanese Numbers Library", () => {
 			// Check that we get a good distribution across ranges
 			const ranges = {
 				small: samples.filter((n) => n < 1000).length,
-				thousands: samples.filter((n) => n >= 1000 && n < 10000)
+				thousands: samples.filter((n) => n >= 1000 && n < 10000).length,
+				tenThousands: samples.filter((n) => n >= 10000 && n < 100000).length,
+				hundredThousands: samples.filter((n) => n >= 100000 && n < 1000000)
 					.length,
-				tenThousands: samples.filter(
-					(n) => n >= 10000 && n < 100000
-				).length,
-				hundredThousands: samples.filter(
-					(n) => n >= 100000 && n < 1000000
-				).length,
-				millions: samples.filter(
-					(n) => n >= 1000000 && n < 10000000
-				).length,
-				tenMillions: samples.filter(
-					(n) => n >= 10000000 && n < 100000000
-				).length,
-				hundredMillions: samples.filter(
-					(n) => n >= 100000000 && n < 1000000000
-				).length,
-				billions: samples.filter(
-					(n) => n >= 1000000000 && n < 10000000000
-				).length,
-				tenBillions: samples.filter(
-					(n) => n >= 10000000000 && n < 100000000000
-				).length,
+				millions: samples.filter((n) => n >= 1000000 && n < 10000000).length,
+				tenMillions: samples.filter((n) => n >= 10000000 && n < 100000000)
+					.length,
+				hundredMillions: samples.filter((n) => n >= 100000000 && n < 1000000000)
+					.length,
+				billions: samples.filter((n) => n >= 1000000000 && n < 10000000000)
+					.length,
+				tenBillions: samples.filter((n) => n >= 10000000000 && n < 100000000000)
+					.length,
 				hundredBillions: samples.filter(
-					(n) => n >= 100000000000 && n < 1000000000000
+					(n) => n >= 100000000000 && n < 1000000000000,
 				).length,
 				trillions: samples.filter((n) => n >= 1000000000000).length,
 			};
 
 			// We should get some distribution across ranges (not everything clustered in one range)
 			const nonZeroRanges = Object.values(ranges).filter(
-				(count) => count > 0
+				(count) => count > 0,
 			).length;
 			// With 200 samples from a trillion-range distribution, we should hit multiple ranges
 			expect(nonZeroRanges).toBeGreaterThanOrEqual(1); // At least hit one range
@@ -424,7 +410,7 @@ describe("Japanese Numbers Library", () => {
 			// Additional check: total should equal our sample size
 			const totalCounted = Object.values(ranges).reduce(
 				(sum, count) => sum + count,
-				0
+				0,
 			);
 			expect(totalCounted).toBe(200);
 		});
@@ -466,9 +452,7 @@ describe("Japanese Numbers Library", () => {
 			}
 
 			// Test ten thousands range (10000-99999): should be divisible by 500
-			const tenThousands = samples.filter(
-				(n) => n >= 10000 && n < 100000
-			);
+			const tenThousands = samples.filter((n) => n >= 10000 && n < 100000);
 			if (tenThousands.length > 0) {
 				for (const num of tenThousands) {
 					expect(num % 500).toBe(0);
@@ -477,7 +461,7 @@ describe("Japanese Numbers Library", () => {
 
 			// Test hundred thousands range (100000-999999): should be divisible by 1000
 			const hundredThousands = samples.filter(
-				(n) => n >= 100000 && n < 1000000
+				(n) => n >= 100000 && n < 1000000,
 			);
 			if (hundredThousands.length > 0) {
 				for (const num of hundredThousands) {
@@ -486,9 +470,7 @@ describe("Japanese Numbers Library", () => {
 			}
 
 			// Test millions range (1000000-9999999): should be divisible by 10000
-			const millions = samples.filter(
-				(n) => n >= 1000000 && n < 10000000
-			);
+			const millions = samples.filter((n) => n >= 1000000 && n < 10000000);
 			if (millions.length > 0) {
 				for (const num of millions) {
 					expect(num % 10000).toBe(0);
@@ -496,9 +478,7 @@ describe("Japanese Numbers Library", () => {
 			}
 
 			// Test ten millions range (10000000-99999999): should be divisible by 50000
-			const tenMillions = samples.filter(
-				(n) => n >= 10000000 && n < 100000000
-			);
+			const tenMillions = samples.filter((n) => n >= 10000000 && n < 100000000);
 			if (tenMillions.length > 0) {
 				for (const num of tenMillions) {
 					expect(num % 50000).toBe(0);
@@ -507,7 +487,7 @@ describe("Japanese Numbers Library", () => {
 
 			// Test hundred millions range (100000000-999999999): should be divisible by 100000
 			const hundredMillions = samples.filter(
-				(n) => n >= 100000000 && n < 1000000000
+				(n) => n >= 100000000 && n < 1000000000,
 			);
 			if (hundredMillions.length > 0) {
 				for (const num of hundredMillions) {
@@ -517,7 +497,7 @@ describe("Japanese Numbers Library", () => {
 
 			// Test billions range (1000000000-9999999999): should be divisible by 1000000
 			const billions = samples.filter(
-				(n) => n >= 1000000000 && n < 10000000000
+				(n) => n >= 1000000000 && n < 10000000000,
 			);
 			if (billions.length > 0) {
 				for (const num of billions) {
@@ -527,7 +507,7 @@ describe("Japanese Numbers Library", () => {
 
 			// Test ten billions range: should be divisible by 5000000
 			const tenBillions = samples.filter(
-				(n) => n >= 10000000000 && n < 100000000000
+				(n) => n >= 10000000000 && n < 100000000000,
 			);
 			if (tenBillions.length > 0) {
 				for (const num of tenBillions) {
@@ -537,7 +517,7 @@ describe("Japanese Numbers Library", () => {
 
 			// Test hundred billions range: should be divisible by 10000000
 			const hundredBillions = samples.filter(
-				(n) => n >= 100000000000 && n < 1000000000000
+				(n) => n >= 100000000000 && n < 1000000000000,
 			);
 			if (hundredBillions.length > 0) {
 				for (const num of hundredBillions) {
@@ -564,13 +544,13 @@ describe("Japanese Numbers Library", () => {
 
 			// Look for some typical "realistic" patterns
 			const hasRoundHundreds = samples.some(
-				(n) => n >= 1000 && n < 10000 && n % 100 === 0
+				(n) => n >= 1000 && n < 10000 && n % 100 === 0,
 			);
 			const hasRoundThousands = samples.some(
-				(n) => n >= 100000 && n < 1000000 && n % 1000 === 0
+				(n) => n >= 100000 && n < 1000000 && n % 1000 === 0,
 			);
 			const hasRoundTenThousands = samples.some(
-				(n) => n >= 1000000 && n < 10000000 && n % 10000 === 0
+				(n) => n >= 1000000 && n < 10000000 && n % 10000 === 0,
 			);
 			const hasLargeNumbers = samples.some((n) => n >= 1000000000); // At least some big numbers
 
@@ -580,12 +560,12 @@ describe("Japanese Numbers Library", () => {
 				hasRoundHundreds ||
 					hasRoundThousands ||
 					hasRoundTenThousands ||
-					hasLargeNumbers
+					hasLargeNumbers,
 			).toBe(true);
 
 			// Additional verification: all numbers should still be valid
 			const allValid = samples.every(
-				(n) => n >= 0 && n <= 999999999999999 && Number.isInteger(n)
+				(n) => n >= 0 && n <= 999999999999999 && Number.isInteger(n),
 			);
 			expect(allValid).toBe(true);
 		});

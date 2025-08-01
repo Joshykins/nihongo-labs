@@ -1,11 +1,11 @@
 {
-	"name": "数字-Dash | Suji-Dash",
-	"short_name": "Suji-Dash",
-	"description": "Master Japanese numbers fast with fun exercises",
+	"name": "Nihongo Labs | Master Japanese Numbers & Dates",
+	"short_name": "Nihongo Labs",
+	"description": "Master Japanese numbers and dates with 数字-Dash and 日付-Dash. Interactive practice tools for learning Japanese.",
 	"start_url": "/",
 	"display": "standalone",
-	"background_color": "#fdf2f8",
-	"theme_color": "#8b5cf6",
+	"background_color": "#f0fdf4",
+	"theme_color": "#059669",
 	"icons": [
 		{
 			"src": "/favicon.svg",

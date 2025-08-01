@@ -546,18 +546,15 @@ function generateRomajiVariants(romaji: string): string[] {
 		// Add variant with long vowel replaced by short
 		if (romaji.includes(mapping.long)) {
 			variants.add(
-				romaji.replace(new RegExp(mapping.long, "g"), mapping.short)
+				romaji.replace(new RegExp(mapping.long, "g"), mapping.short),
 			);
 		}
 		// Add variant with short vowel replaced by long (for words that typically have long vowels)
-		if (
-			romaji.includes(mapping.short) &&
-			!romaji.includes(mapping.long)
-		) {
+		if (romaji.includes(mapping.short) && !romaji.includes(mapping.long)) {
 			// Only replace if it's a standalone vowel or at the end
 			const longVariant = romaji.replace(
 				new RegExp(`${mapping.short}(?![aeiou])`, "g"),
-				mapping.long
+				mapping.long,
 			);
 			if (longVariant !== romaji) {
 				variants.add(longVariant);
@@ -588,18 +585,12 @@ function generateRomajiVariants(romaji: string): string[] {
 		for (const mapping of ySoundMappings) {
 			if (variant.includes(mapping.with_y)) {
 				variants.add(
-					variant.replace(
-						new RegExp(mapping.with_y, "g"),
-						mapping.without_y
-					)
+					variant.replace(new RegExp(mapping.with_y, "g"), mapping.without_y),
 				);
 			}
 			if (variant.includes(mapping.without_y)) {
 				variants.add(
-					variant.replace(
-						new RegExp(mapping.without_y, "g"),
-						mapping.with_y
-					)
+					variant.replace(new RegExp(mapping.without_y, "g"), mapping.with_y),
 				);
 			}
 		}
@@ -623,7 +614,7 @@ function generateRomajiVariants(romaji: string): string[] {
  */
 export function isRomajiMatch(
 	userInput: string,
-	correctRomaji: string
+	correctRomaji: string,
 ): boolean {
 	const normalizedInput = userInput.toLowerCase().trim();
 	const normalizedCorrect = correctRomaji.toLowerCase().trim();
@@ -643,7 +634,7 @@ export function isRomajiMatch(
  */
 export function isAnswerCorrect(
 	userInput: string,
-	japaneseNumber: JapaneseNumber
+	japaneseNumber: JapaneseNumber,
 ): boolean {
 	const normalizedInput = userInput.toLowerCase().trim();
 
@@ -985,4 +976,77 @@ function convertHundredTrillions(num: number): JapaneseNumber {
 		hiragana: baseHiragana + remainderJapanese.hiragana,
 		romaji: baseRomaji + remainderJapanese.romaji,
 	};
+}
+
+// Function to convert numbers to English words
+export function convertToEnglish(num: number): string {
+	if (num === 0) return "zero";
+	if (num < 0) return `negative ${convertToEnglish(-num)}`;
+
+	const ones = [
+		"",
+		"one",
+		"two",
+		"three",
+		"four",
+		"five",
+		"six",
+		"seven",
+		"eight",
+		"nine",
+		"ten",
+		"eleven",
+		"twelve",
+		"thirteen",
+		"fourteen",
+		"fifteen",
+		"sixteen",
+		"seventeen",
+		"eighteen",
+		"nineteen",
+	];
+
+	const tens = [
+		"",
+		"",
+		"twenty",
+		"thirty",
+		"forty",
+		"fifty",
+		"sixty",
+		"seventy",
+		"eighty",
+		"ninety",
+	];
+
+	const scales = [
+		{ value: 1000000000000, name: "trillion" },
+		{ value: 1000000000, name: "billion" },
+		{ value: 1000000, name: "million" },
+		{ value: 1000, name: "thousand" },
+		{ value: 100, name: "hundred" },
+	];
+
+	let result = "";
+	let remaining = num;
+
+	// Handle large scales
+	for (const scale of scales) {
+		if (remaining >= scale.value) {
+			const count = Math.floor(remaining / scale.value);
+			result += `${convertToEnglish(count)} ${scale.name}`;
+			remaining %= scale.value;
+			if (remaining > 0) result += " ";
+		}
+	}
+
+	// Handle tens and ones
+	if (remaining >= 20) {
+		result += tens[Math.floor(remaining / 10)];
+		if (remaining % 10 > 0) result += `-${ones[remaining % 10]}`;
+	} else if (remaining > 0) {
+		result += ones[remaining];
+	}
+
+	return result.trim();
 }
