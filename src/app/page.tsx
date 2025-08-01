@@ -36,8 +36,7 @@ export default function Home() {
 					<div className="space-y-8 text-center">
 						{/* Badge */}
 						<Badge className="bg-gradient-to-r from-pink-500 to-purple-600 px-4 py-2 font-medium text-sm text-white">
-							<Sparkles className="mr-2 h-4 w-4" />
-							A Developer's Learning Tool
+							<Sparkles className="mr-2 h-4 w-4" />A Developer's Learning Tool
 						</Badge>
 
 						{/* Main Heading */}
@@ -51,7 +50,8 @@ export default function Home() {
 								Suji-Dash
 							</h2>
 							<p className="mx-auto max-w-3xl text-gray-600 text-xl leading-relaxed sm:text-2xl">
-								A modern web app I built to improve my Japanese number reading speed.
+								A modern web app I built to improve my Japanese number reading
+								speed.
 								<br />
 								<span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text font-semibold text-transparent">
 									Instant access • No downloads • Just practice
@@ -64,9 +64,12 @@ export default function Home() {
 							<Button
 								size="lg"
 								className="transform bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 font-semibold text-lg text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-pink-600 hover:to-purple-700 hover:shadow-xl"
+								asChild
 							>
-								<Play className="mr-2 h-5 w-5" />
-								Try It Out
+								<Link href="/practice">
+									<Play className="mr-2 h-5 w-5" />
+									Try It Out
+								</Link>
 							</Button>
 							<Button
 								variant="outline"
@@ -74,7 +77,11 @@ export default function Home() {
 								className="border-2 border-gray-300 px-8 py-4 font-semibold text-gray-700 text-lg transition-all duration-300 hover:border-purple-400 hover:text-purple-700"
 								asChild
 							>
-								<Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+								<Link
+									href="https://github.com/Joshykins/suji-dash"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<Github className="mr-2 h-5 w-5" />
 									View on GitHub
 								</Link>
@@ -89,7 +96,8 @@ export default function Home() {
 				<div className="container mx-auto px-4">
 					<div className="mb-16 text-center">
 						<h3 className="mb-4 font-bold text-4xl text-gray-800">
-							What Makes <span className="text-purple-600">Suji-Dash</span> Different?
+							What Makes <span className="text-purple-600">Suji-Dash</span>{" "}
+							Different?
 						</h3>
 						<p className="mx-auto max-w-2xl text-gray-600 text-xl">
 							Built by a developer learning Japanese, for fellow learners
@@ -165,19 +173,27 @@ export default function Home() {
 						</h3>
 						<div className="space-y-6 text-gray-600 text-lg leading-relaxed">
 							<p>
-								As a developer learning Japanese, I struggled with number recognition speed. 
-								Reading prices, addresses, and dates was painfully slow.
+								As a developer learning Japanese, I struggled with number
+								recognition speed. Reading prices, addresses, and dates was
+								painfully slow.
 							</p>
 							<p>
-								Most language learning apps are bloated with features I didn't need. I wanted something 
-								I could quickly open in my browser, practice for 5 minutes, and actually see progress.
+								Most language learning apps are bloated with features I didn't
+								need. I wanted something I could quickly open in my browser,
+								practice for 5 minutes, and actually see progress.
 							</p>
 							<p>
-								So I built a modern, lightweight web app that focuses on one thing: 
-								<span className="font-semibold text-purple-600"> making Japanese number recognition fast and effortless</span>.
+								So I built a modern, lightweight web app that focuses on one
+								thing:
+								<span className="font-semibold text-purple-600">
+									{" "}
+									making Japanese number recognition fast and effortless
+								</span>
+								.
 							</p>
 							<p className="font-semibold text-purple-600">
-								No downloads, no sign-ups, just instant practice whenever you need it.
+								No downloads, no sign-ups, just instant practice whenever you
+								need it.
 							</p>
 						</div>
 					</div>
@@ -192,15 +208,19 @@ export default function Home() {
 							Give It a Try
 						</h3>
 						<p className="text-white/90 text-xl">
-							A modern, responsive web app that works on any device. No downloads, no accounts - just bookmark and practice anywhere.
+							A modern, responsive web app that works on any device. No
+							downloads, no accounts - just bookmark and practice anywhere.
 						</p>
 						<div className="flex flex-col justify-center gap-4 sm:flex-row">
 							<Button
 								size="lg"
 								className="transform bg-white px-8 py-4 font-semibold text-lg text-purple-600 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gray-100 hover:shadow-xl"
+								asChild
 							>
-								<Play className="mr-2 h-5 w-5" />
-								Start Practicing
+								<Link href="/practice">
+									<Play className="mr-2 h-5 w-5" />
+									Start Practicing
+								</Link>
 							</Button>
 							<Button
 								variant="outline"
@@ -208,7 +228,11 @@ export default function Home() {
 								className="border-2 border-white bg-transparent px-8 py-4 font-semibold text-lg text-white transition-all duration-300 hover:bg-white hover:text-purple-600"
 								asChild
 							>
-								<Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+								<Link
+									href="https://github.com/Joshykins/suji-dash"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<Github className="mr-2 h-5 w-5" />
 									View Source
 								</Link>
